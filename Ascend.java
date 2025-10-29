@@ -1,16 +1,17 @@
 public class Ascend {
-	public static void main(String[] args) {
-		int small, medium, large;
-		int min =1,max = 100 ;
-		int range = max - min + 1;
-		small = (int)(Math.random() * range) + min;
-		medium = (int)(Math.random() * range) + min;
-		large = (int)(Math.random() * range) + min;
-		System.out.println("% java Ascend 100 ");
-		System.out.println( small + " " + medium + " " + large);
-		int smallest = Math.min(small, Math.min(medium, large));
-		int largest = Math.max(small, Math.max(medium, large));
-		int middle = small + medium + large - smallest - largest;
-		System.out.println(smallest + " " + middle + " " + largest);
-	}
+    public static void main(String[] args) {
+        int lim = Integer.parseInt(args[0]);
+
+        int a = (int) (Math.random() * lim);
+        int b = (int) (Math.random() * lim);
+        int c = (int) (Math.random() * lim);
+
+        System.out.println(a + " " + b + " " + c);
+
+        int smallest = Math.min(a, Math.min(b, c));
+        int largest = Math.max(a, Math.max(b, c));
+        int middle = (a + b + c) - smallest - largest;
+
+        System.out.println(smallest + " " + middle + " " + largest);
+    }
 }

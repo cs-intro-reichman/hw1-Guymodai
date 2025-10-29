@@ -1,37 +1,31 @@
-
 public class TimeFormat {
-	public static void main(String[] args) {
-		System.out.println("please enter the time in hh:mm format");
-		args = new String[1];
-		args[0] = "08:02";
-		System.out.println("% TimeFormat " + args[0]);
-		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
-		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
+    public static void main(String[] args) {
+        int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
+        int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
+        String amPm;
+        int displayHours;
 
-		if(hours < 12)
-		{
-			if( minutes>10)
-			{
-				System.out.println(hours + ":" + minutes +" AM");
-			}
-			else
-			{
-				System.out.println(hours + ":0" + minutes +" AM");
-			}
-			
-		}
-		else
-		{
-			if( minutes>10)
-			{
-				System.out.println(hours + ":" + minutes +" PM");
-			}
-			else
-			{
-				System.out.println(hours + ":0" + minutes +" PM");
-			}
-			
-		}
-	}
+        if (hours == 0) {
+            displayHours = 0;
+            amPm = "AM";
+        } else if (hours < 12) {
+            displayHours = hours;
+            amPm = "AM";
+        } else if (hours == 12) {
+            displayHours = 12;
+            amPm = "PM";
+        } else {
+            displayHours = hours - 12;
+            amPm = "PM";
+        }
+        
+        String minutesString;
+        if (minutes < 10) {
+             minutesString = "0" + minutes;
+        } else {
+             minutesString = "" + minutes;
+        }
+
+        System.out.println(displayHours + ":" + minutesString + " " + amPm);
+    }
 }
-
